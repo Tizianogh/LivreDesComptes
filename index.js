@@ -41,6 +41,7 @@ bot.on("message", message => {
         message.delete(1000);
         message.channel.send(":dollar: ** - Votre compte contient actuellement : " + "__" + compte + "__" + "$**")
     } else if (command === 'h') {
+        message.delete(1000);
         const exampleEmbed = new Discord.RichEmbed()
             .setColor('#FF0000	')
             .setTitle('Welcome, voici les différentes commandes du bot LivretDesComptes, !h pour y accèder')
