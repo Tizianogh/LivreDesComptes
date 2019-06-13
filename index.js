@@ -28,7 +28,7 @@ bot.on("message", message => {
             return message.channel.send(`:interrobang: Vous  n'avez pas transmis les bons argument(s) ${message.author}!`);
         }
         compte = compte - parseFloat(donne)
-        message.channel.send(`:heavy_plus_sign: - **Retrait  sur le compte principal : ` + parseFloat(donne) + `$, pour le motif suivant : ` + motif + `. (${message.author})** `);
+        message.channel.send(`:heavy_minus_sign: - **Retrait  sur le compte principal : ` + parseFloat(donne) + `$, pour le motif suivant : ` + motif + `. (${message.author})** `);
         message.channel.send(":dollar:  **- Votre compte contient actuellement : " + "__" + compte + "__" + "$**")
     } else if (command === '=') {
         message.delete(1000);
