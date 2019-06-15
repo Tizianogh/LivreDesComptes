@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 var compte = 0
+var pourcentage = 0
+var prevision = 0
 bot.on('ready', () => {
     console.log('I am ready!');
 });
@@ -28,7 +30,7 @@ bot.on("message", message => {
             return message.channel.send(`:interrobang: Vous  n'avez pas transmis les bons argument(s) ${message.author}!`);
         }
         compte = compte - parseFloat(donne)
-        message.channel.send(`:heavy_minus_sign: - **Retrait  sur le compte principal : ` + parseFloat(donne) + `$, pour le motif suivant : ` + motif + `. (${message.author})** `);
+        message.channel.send(`:heavy_plus_sign: - **Retrait  sur le compte principal : ` + parseFloat(donne) + `$, pour le motif suivant : ` + motif + `. (${message.author})** `);
         message.channel.send(":dollar:  **- Votre compte contient actuellement : " + "__" + compte + "__" + "$**")
     } else if (command === '=') {
         message.delete(1000);
@@ -41,7 +43,6 @@ bot.on("message", message => {
         message.delete(1000);
         message.channel.send(":dollar: ** - Votre compte contient actuellement : " + "__" + compte + "__" + "$**")
     } else if (command === 'h') {
-        message.delete(1000);
         const exampleEmbed = new Discord.RichEmbed()
             .setColor('#FF0000	')
             .setTitle('Welcome, voici les différentes commandes du bot LivretDesComptes, !h pour y accèder')
@@ -56,7 +57,17 @@ bot.on("message", message => {
             .setTimestamp()
             .setFooter('Fabriqué par Tiziano G. pour la Bratva')
         message.channel.sendEmbed(exampleEmbed)
+    } else if (command === 'b') {
+        message.delete(1000);
+        if (!args.length || isNaN(parseFloat(donne))) {
+            return message.channel.send(`:interrobang: Vous  n'avez pas transmis les bons argument(s) ${message.author}!`);
+        }
+        pourcentage =  parseFloat(donne) * 0,30
+        prevision = parseFloat(donne) - pourcentage
+        message.channel.send(":money_with_wings: ** - Montant a payé pour le blanchiment d'argent  : " + "__" + prevision + "__" + "$**")
+
+
     }
 });
 
-bot.login(process.env.BOT_TOKEN) 
+bot.login('NTg4MDAxNjM0NzE0NjQ4NTg3.XP-0UQ.wXqUb0ODvNv2C8fpyNd4WviWNOE') 
