@@ -62,7 +62,7 @@ bot.on("message", message => {
         if (!args.length || isNaN(parseFloat(donne))) {
             return message.channel.send(`:interrobang: Vous  n'avez pas transmis les bons argument(s) ${message.author}!`);
         }
-        pourcentage =  parseFloat(donne) * 0,30
+        pourcentage =  parseFloat(donne) * 0,3
         prevision = parseFloat(donne) - pourcentage
         message.channel.send(":money_with_wings: ** - Montant a payé pour le blanchiment d'argent  : " + "__" + prevision + "__" + "$**")
 
