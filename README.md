@@ -1,2 +1,3 @@
 # LivreDesComptes
-bot pour la Bratva
+
+Bot discord pour garantir un suivi des transactions sur un compte bancaire sur le jeu vidéo GTA
